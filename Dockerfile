@@ -6,7 +6,7 @@ apt-get -qq update && \
 apt-get install -yq curl wget libwww-perl libjson-perl ethtool libyaml-dev file && \
 rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 # Declare args
-ARG ARKIME_VERSION=5.0.0-rc2
+ARG ARKIME_VERSION=5.5.1
 ARG UBUNTU_VERSION=2004_amd64
 ARG ES_HOST=elasticsearch
 ARG ES_PORT=9200
