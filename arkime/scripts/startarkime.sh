@@ -14,7 +14,7 @@ if [ ! -f /data/configured ]; then
 	/opt/arkime/bin/Configure
 fi
 #Give option to init ElasticSearch
-if [ "$INITALIZEDB" = "true" ] ; then
+if [ "$INITIALIZEDB" = "true" ] ; then
 	echo INIT | /opt/arkime/db/db.pl http://$ES_HOST:$ES_PORT init
 	/opt/arkime/bin/arkime_add_user.sh admin "Admin User" $ARKIME_PASSWORD --admin
 fi
@@ -32,7 +32,7 @@ echo "  password: $ARKIME_PASSWORD"
 if [ "$WISE" = "on" ]
 then
     echo "Launch wise..."
-    node $ARKIMEDIR/wiseService/wiseService.js >> $ARKIMEDIR/logs/wise.log 2>&1 &
+    /bin/sh -c 'cd $ARKIMEDIR/wiseService; node wiseService.js >> $ARKIMEDIR/logs/wise.log 2>&1' &
 fi
 
 if [ "$CAPTURE" = "on" ]
@@ -53,7 +53,7 @@ fi
 if [ "$CONT3XT" = "on" ]
 then
     echo "Launch cont3xt..."
-    node $ARKIMEDIR/cont3xt/cont3xt.js >> $ARKIMEDIR/logs/cont3xt.log 2>&1 &
+    /bin/sh -c 'cd $ARKIMEDIR/cont3xt; node cont3xt.js >> $ARKIMEDIR/logs/cont3xt.log 2>&1' &
 fi
 
 if [ "$VIEWER" = "on" ]

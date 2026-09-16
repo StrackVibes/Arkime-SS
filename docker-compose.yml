@@ -13,15 +13,18 @@ services:
   arkime:
     build:
       context: .
-    image: strackvibes/arkime:5.1.1
+      args:
+        ARKIME_VERSION: 6.7.0
+        UBUNTU_VERSION: 2204_amd64
+    image: strackvibes/arkime:6.7.0
     container_name: arkime
     environment:
       # Set to true on first execution, then false subsequently
       - INITIALIZEDB=true
       - ARKIME_PASSWORD=password
       - WIPEDB=true
-      - ARKIME_VERSION=5.1.1
-      - UBUNTU_VERSION=20.04
+      - ARKIME_VERSION=6.7.0
+      - UBUNTU_VERSION=2204_amd64
       - ES_HOST=elasticsearch
       - ES_PORT=9200
       - ARKIME_INTERFACE=eth0
