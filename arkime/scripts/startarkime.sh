@@ -33,6 +33,12 @@ if [ "$WISE" = "on" ]
 then
     echo "Launch wise..."
     /bin/sh -c 'cd $ARKIMEDIR/wiseService; node wiseService.js >> $ARKIMEDIR/logs/wise.log 2>&1' &
+    # The viewer fetches the WISE views once at startup, so WISE must be listening first
+    echo "Waiting for wise..."
+    for i in $(seq 1 120); do
+        curl -s -o /dev/null http://127.0.0.1:8081/views && break
+        sleep 1
+    done
 fi
 
 if [ "$CAPTURE" = "on" ]

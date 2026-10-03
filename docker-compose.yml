@@ -22,7 +22,7 @@ services:
       # Set to true on first execution, then false subsequently
       - INITIALIZEDB=true
       - ARKIME_PASSWORD=password
-      - WIPEDB=true
+      - WIPEDB=false
       - ARKIME_VERSION=6.7.0
       - UBUNTU_VERSION=2204_amd64
       - ES_HOST=elasticsearch

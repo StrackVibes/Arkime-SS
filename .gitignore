@@ -1,0 +1,11 @@
+# Local data and runtime state
+arkime/pcap/
+arkime/raw/
+arkime/logs/
+
+# Per-machine overrides and backups
+docker-compose.override.yml
+conference/
+*.bak
+*.orig
+*.server-bak

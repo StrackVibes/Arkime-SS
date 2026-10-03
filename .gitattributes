@@ -1,0 +1,11 @@
+# Shell scripts, configs and compose files run inside Linux containers and must keep LF endings
+* text=auto eol=lf
+*.sh text eol=lf
+*.ini text eol=lf
+Dockerfile text eol=lf
+*.pcap binary
+*.pcapng binary
+
+# Reference data files with mixed endings -- leave byte-for-byte as committed
+arkime/etc/oui.txt -text
+arkime/etc/ipv4-address-space.csv -text
